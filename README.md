@@ -1,6 +1,6 @@
 # API Documentation for Soif Drip Irrigation and Garden Monitoring App
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02786d3d4d1c4fb3bd7261eb69d069f2)](https://www.codacy.com/manual/forkbomb-666/drip_irrigation_server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=forkbomb-666/drip_irrigation_server&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02786d3d4d1c4fb3bd7261eb69d069f2)](https://www.codacy.com/manual/forkbomb-666/drip_irrigation_server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=forkbomb-666/drip_irrigation_server&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/forkbomb-666/drip_irrigation_server.svg?branch=master)](https://travis-ci.org/forkbomb-666/drip_irrigation_server)
 
 <img src="https://github.com/forkbomb-666/drip_irrigation_server/raw/master/static/plant.png" width=75 /><img src="https://github.com/forkbomb-666/drip_irrigation_server/raw/master/static/soif_logo.png" width="175" />
 
