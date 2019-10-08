@@ -4,11 +4,11 @@
 
 <img src="https://github.com/forkbomb-666/drip_irrigation_server/raw/master/static/plant.png" width=75 /><img src="https://github.com/forkbomb-666/drip_irrigation_server/raw/master/static/soif_logo.png" width="175" />
 
-#### BaseURL: 
+### BaseURL
 
 [https://drip-io.herokuapp.com/](https://drip-io.herokuapp.com/)
 
-#### Endpoints:
+### Endpoints:
 
 | Sl. | Endpoint | Usage | Method | Response Type |
 | --- | --- | :-- | :-: | :-: |
@@ -19,20 +19,21 @@
 | 5 | `/insertdata` | Insert all sensor data into database | `POST` | `application/json` |
 | 6 | `/setthreshold` | Set moisture threshold for automatic water pump | `POST` | `application/json` |
 | 7 | `/getthreshold` | Read the threshold value from the server | `GET` | `application/json` |
+| 8 | `/deletedata/<string:date>` | Delete all sensor data for a given day | `DELETE` | `application/json` |
 
-#### JSON Templates:
+### JSON Templates:
 
 `/insertdata`:
 
 ```json
 {
   "moisture": {
-    "plant0": [],
-    "plant1": []
+    "plant0": 0.0,
+    "plant1": 0.0
   },
-  "temparature": [],
-  "humidity": [],
-  "light": []
+  "temparature": 0.0,
+  "humidity": 0.0,
+  "light": 0.0
 }
 ```
 
