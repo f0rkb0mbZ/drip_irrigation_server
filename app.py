@@ -23,9 +23,7 @@ def getdata(date, sensor):
     db = client['dripdata']
     # db = client['bqqldgp4wjjjjr2']
     col = db[date]
-    records = list()
-    for i in col.find({}, {sensor:1, '_id':0}):
-        records.append(i)
+    records = list(col.find({}, {sensor:1, '_id':0}))
     return jsonify({'records': records})
 
 @app.route('/getdata/<string:date>', methods=['GET'])
@@ -57,33 +55,31 @@ def deletealldata(date):
         print(e)
         return jsonify({'success': False})
 
-@app.route('/setthreshold', methods=['POST'])
-def water():
+@app.route('/setpump', methods=['POST'])
+def setpump():
     try:
-        thresdata = request.get_json()
-        print(thresdata)
-        # config template
-        # con = {"pump0": 0.0, "pump1": 0.0}
-        with open('static/settings.json', 'w') as pumpcontrol:
-            # json.dump(thresdata, pumpcontrol)
-            pumpcontrol.write(json.dumps(thresdata))
-            pumpcontrol.close()
-        return jsonify({"success": True})
+        pumpdata = request.get_json()
+        print(pumpdata)
+        client = connect()
+        db = client['soif_settings']
+        db['pump'].update_one({}, {'$set': {'settings': pumpdata}})
+        print('Successfully updated setting!')
+        return jsonify({'success': True})
     except Exception as e:
         print(e)
-        return jsonify({"success": False})
+        return jsonify({'success': False})
 
-@app.route('/getthreshold', methods=['GET'])
-def activatepump():
+@app.route('/getpump', methods=['GET'])
+def getpump():
     try:
-        with open('static/settings.json', 'r') as pumpdata:
-            pump = json.loads(pumpdata.read())
-            pumpdata.close()
-        print(pump)
-        return jsonify(pump)
+        client = connect()
+        db = client['soif_settings']
+        col = db['pump']
+        settings =  list(col.find({}, {'_id': 0}))
+        return jsonify(settings[0])
     except Exception as e:
         print(e)
-        return jsonify({"success": False})
+        return jsonify({'success': False})
 
 @app.route('/insertdata', methods=['POST'])
 def insertdata():
