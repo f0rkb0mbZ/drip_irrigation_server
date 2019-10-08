@@ -15,8 +15,9 @@ class test(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_getthreshold(self):
-        response = self.app.get('/getthreshold', follow_redirects=True)
+        response = self.app.get('/getpump', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+    
 
     def tearDown(self):
         pass
