@@ -46,6 +46,17 @@ def getdatanow():
         print(e)
         return jsonify({"success": False})
 
+@app.route('/deletedata/<string:date>', methods=['DELETE'])
+def deletealldata(date):
+    try:
+        client = connect()
+        db = client['dripdata']
+        db[date].drop()
+        return jsonify({'success': True})
+    except Exception as e:
+        print(e)
+        return jsonify({'success': False})
+
 @app.route('/setthreshold', methods=['POST'])
 def water():
     try:
