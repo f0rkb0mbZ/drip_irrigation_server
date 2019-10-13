@@ -8,7 +8,7 @@
 
 [https://soif.herokuapp.com/](https://soif.herokuapp.com/)
 
-### Endpoints:
+### Endpoints
 
 | Sl. | Endpoint | Usage | Method | Response Type |
 | --- | --- | :-- | :-: | :-: |
@@ -21,7 +21,7 @@
 | 7 | `/getpump` | Read the threshold value from the server | `GET` | `application/json` |
 | 8 | `/deletedata/<string:date>` | Delete all sensor data for a given day | `DELETE` | `application/json` |
 
-### JSON Templates:
+### JSON Templates
 
 `/getdata/now` :
 
